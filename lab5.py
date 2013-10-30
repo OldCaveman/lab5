@@ -17,7 +17,10 @@ with open("Caven_Tullydata.csv") as infile:
         if temp < low:
             low = temp
         if date != last_day:
-            value = calculate(high, low, base=50)
-            print value
-        # Do something with calculate(high, low, base=10)
-        pass
+            if date.date() > datetime.date(2007, 1, 1):
+                value = calculate(high, low, base=50)
+                print value
+            #reset values for next day
+            last_day = date
+            high = -1000
+            low = 1000
