@@ -11,11 +11,12 @@ with open("Caven_Tullydata.csv") as infile:
     for row in reader:
         # TODO: extract the date's high and low temps
         date = datetime.datetime.strptime(row[0][0:10], "%Y-%m-%d")
-        temp = float(row[1])
-        if temp > high:
-            high = temp
-        if temp < low:
-            low = temp
+        if len(row) > 1:
+            temp = float(row[1])
+            if temp > high:
+                high = temp
+            if temp < low:
+                low = temp
         if date != last_day:
             if date.date() > datetime.date(2007, 1, 1):
                 value = calculate(high, low, base=50)
