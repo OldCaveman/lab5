@@ -8,7 +8,10 @@ with open("Caven_Tullydata.csv") as infile:
     high = max
     for row in reader:
         # TODO: extract the date's high and low temps
-        date = datetime.datetime.strptime(row[0], "%Y-%m-%d")
-        print date
+        date = datetime.datetime.strptime(row[0][0:10], "%Y-%m-%d")
+        try:
+            print date
+        except:
+            ValueError
         # Do something with calculate(high, low, base=10)
         pass
