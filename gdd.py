@@ -1,5 +1,5 @@
 
 
-def calculate(high, low, base=10.0):
+def calculate(high, low, base=50.0):
     # TODO: fix this. Calculate the GDD
-    return None
+    return ((float(high) + float(low)) / 2) - base
